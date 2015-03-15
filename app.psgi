@@ -2,7 +2,7 @@ use strict;
 use Dancer;
 
 get '/' => sub {
-    return $ENV{WORLD} || 'world';
+    template 'index';
 };
 
 get '/hello' => sub {
