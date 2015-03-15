@@ -16,7 +16,7 @@
 <body>
 <div data-role="page" id="mainpage">
   <div data-role="header" data-position="fixed" data-theme="a">
-    <h1 id="">1848년 헝가리 혁명</h1>
+    <h1 id="">1848</h1>
   </div>
   <div data-role="footer" data-position="fixed" data-theme="a">
     <div data-role="navbar">
@@ -31,8 +31,8 @@
   </div><!-- /footer -->
 
   <div data-role="main" class="ui-content">
-    <h2>1848년 헝가리 혁명</h2>
-    <p>1848년 헝가리 혁명 (헝가리어: 1848–49-es forradalom és szabadságharc; 1848~1849년의 혁명과 자유전쟁)은 1848년에서 1849년에 걸쳐 헝가리에서 합스부르크에 대항하여 일어난 혁명이다. 헝가리 왕국은 오스트리아 제국과 동등한 위치의 군주국이 되지만, 뵈멘인들과 크로아티아인들이 이에 강력하게 반발하면서, 헝가리는 오스트리아에 굴복하면서 마무리되었다. 현재 헝가리에서는 3월 15일을 1848년 헝가리 혁명기념일로 지정하여, 공휴일이 되었다.</p>
+    <h2>1848</h2>
+    <p>https://devcenter.heroku.com/articles/logging 5 days ago - Logs are a stream of time-ordered events aggregated from the output streams of all your app's running processes. Retrieve, filter, or use syslog ...</p>
   </div>
 </div>
 </body>
