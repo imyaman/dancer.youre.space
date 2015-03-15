@@ -33,7 +33,7 @@
   <div data-role="main" class="ui-content">
     <h2>1848</h2>
     <p>https://devcenter.heroku.com/articles/logging 5 days ago - Logs are a stream of time-ordered events aggregated from the output streams of all your app's running processes. Retrieve, filter, or use syslog ...</p>
-    <p>한글</p>
+    <p></p>
   </div>
 </div>
 </body>
