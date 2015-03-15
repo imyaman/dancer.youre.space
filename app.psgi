@@ -1,9 +1,5 @@
-#use strict;
-#binmode STDOUT, ':encoding(UTF-8)';
-#binmode STDIN, ':encoding(UTF-8)';
-#use utf8;
+use strict;
 use Dancer;
-
 
 get '/' => sub {
     template 'index';
