@@ -2,6 +2,9 @@
 use utf8;
 use Dancer;
 
+binmode STDOUT, ':encoding(UTF-8)';
+binmode STDIN, ':encoding(UTF-8)';
+
 get '/' => sub {
     template 'index';
 };
