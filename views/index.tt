@@ -83,17 +83,19 @@
     <p>속도는 baas.io, sktdevbaas, parse, kinvey 순</p>
     <p>편리함은 baas.io, parse, sktdevbaas, kinvey 순</p>
     <p>Microsoft의 Azure Mobile Services는 신세계. 대단함.</p>
+	<div class="main_banner" id="main_banner">                                                                                                                    
+		<script type="text/javascript">                                                                                                                           
+			var tad_conf = {                                                                                                                                      
+				targetId : 'main_banner',                                                                                                                         
+				clientId : 'MX0005733',                                                                                                                           
+				slotNo : 2,                                                                                                                                       
+				adType : 'inline',
+				newWindow : false                                                                                                                                 
+			};                                                                                                                                                    
+		</script>                                                                                                                                                 
+		<script type="text/javascript" src="http://adddn.adotsolution.com/contents/sdk/js/tad.min.js"></script>                                                   
+	</div>                                                                                                                                                        
 
-	<div class="main_banner" id="main_banner1">
-		<script type="text/javascript">
-			var tad_conf = {
-				targetId : 'main_banner1',
-				clientId : 'MX0005732',
-				slotNo : 2
-			};
-		</script>
-		<script type="text/javascript" src="http://adddn.adotsolution.com/contents/sdk/js/tad.min.js"></script>
-	</div>
   </div>
 </div>
 </body>
