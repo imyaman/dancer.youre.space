@@ -199,7 +199,7 @@ query.find({
 <script type="text/javascript">
   ( function() {
     if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-    var unit = {"calltype":"async[2]","publisher":"imyaman","width":300,"height":250,"sid":"dance.youre.space"};
+    var unit = {"calltype":"async[2]","publisher":"imyaman","width":550,"height":"auto","sid":"dance.youre.space","fluidH":true};
     var placement_id = window.CHITIKA.units.length;
     window.CHITIKA.units.push(unit);
     document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
