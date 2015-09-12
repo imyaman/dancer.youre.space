@@ -16,30 +16,62 @@
 <div data-role="page" id="mainpage">
   <div data-role="header" data-position="fixed" data-theme="a">
     <h1 id="">Javascript를 이용한 BaaS 예제</h1>
-	<!--
-    <div data-role="navbar">
-      <ul>
-        <li><a data-icon="search" href="http://17kesamet.blog.youre.space" rel=external>Search</a></li>
-        <li><a data-icon="grid" href="http://mojolicious.blog.youre.space" rel=external>Category</a></li>
-        <li><a data-icon="check" href="http://dancer.blog.youre.space" rel=external>Issues</a></li>
-        <li><a data-icon="star" href="http://youre.space/blog" rel=external>Blog</a></li>
-        <li><a data-icon="gear" href="http://heroku.blog.youre.space" rel=external>Settings</a></li>
-      </ul>
-    </div> --> <!-- /navbar -->
   </div>
-  <div data-role="footer" data-position="fixed" data-theme="a">
-  </div><!-- /footer -->
 
   <div data-role="main" class="ui-content">
 	  <h2>이게 뭔가요?</h2>
 	  <p>BaaS(Backend as a Service)를 잘 쓰자는 취지에서 javascript 예제를 만들어보았습니다. 초보자를 위해 가능한 단순하게 만들었습니다.</p>
 
 	  <h2><a href="https://api02.youre.space/svr42mp/baas.io/users">youre.space usergrid</a> 예제</h2>
+	  <!--
+	  <div class="main_banner" id="main_banner2">
+		  <script type="text/javascript">
+			  var tad_conf = {
+				  targetId : 'main_banner2',
+				  clientId : 'MX0005733',
+				  slotNo : 2,
+				  adType : 'inline',
+				  test : false,
+				  newWindow : false
+			  };
+		  </script>
+		  <script type="text/javascript" src="http://adddn.adotsolution.com/contents/sdk/js/tad.min.js"></script>
+	  </div>
+	  -->
     <ul>
     <li><a href="usergrid" rel="external">단순조회</a>
     <li><a href="usergrid/index2.html" rel="external">조회+더보기</a></li>
     <li><a href="usergrid/write.html" rel="external">쓰기</a></li>
     </ul>
+데이터를 조회하는 부분. usergrid와 baas.io는 서로 비슷합니다.
+    <pre class="prettyprint">
+&lt;script src="js/usergrid.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(document).ready(function() {
+    var client = new Usergrid.Client({
+        'URI':'https://api02.youre.space',
+        'orgName':'svr42mp', 
+        'appName':'baas.io',
+        //'token':baas_token
+    });
+
+    var options = {
+        'client':client,
+        'endpoint':'comments',
+        'qs':{
+            'ql':'order by created DESC'
+        }
+    }
+
+    client.request(options, function (err, data) {
+      if(!err){
+          drawCommentsTable(data.entities);
+      }else{
+          console.log(err.toString());
+      }
+    });
+}
+    </pre>
 
 	<h2>kt <a href="http://baas.io">baas.io</a> 예제</h2>
     <ul>
@@ -47,6 +79,28 @@
     <li><a href="baas.io/index2.html" rel="external">조회+더보기</a></li>
     <li><a href="baas.io/write.html" rel="external">쓰기</a></li>
     </ul>
+데이터를 조회하는 부분
+    <pre class="prettyprint">
+var io = new Baas.IO({
+  'URI':'https://api.baas.io',
+  'orgName':'imyaman',
+  'appName':'b-log',
+});
+
+var options = {
+  'client':io,
+  'endpoint':'comments',
+  'qs':{
+    'ql':'order by created DESC'
+  }
+}
+
+io.request(options, function (err, data) {
+ if(!err){
+ }else{
+ }
+});
+    </pre>
 
 	<h2><a href="http://parse.com">Parse</a> 예제</h2>
     <ul>
@@ -54,6 +108,15 @@
     <li><a href="parse/index2.html" rel="external"></a></li>
     <li><a href="parse/write.html" rel="external"></a></li>
     </ul>
+<pre class="prettyprint">
+Parse.initialize('cdzz7YuYMPaopERtDOd15bUvv7oSaFtJYkCNZjIg', 'cPEU1ggQqkfL1Uh2fPekOWsmrCs7xc39H6RKZRpr');
+var query = new Parse.Query('Comments');
+query.limit(10);
+query.find({
+  success: drawCommentsTable,
+  error: drawCommentsError
+});
+</pre>
 
 	<h2><a href="http://kinvey.com">Kinvey</a> 예제</h2>
     <ul>
@@ -61,6 +124,23 @@
     <li><a href="kinvey/index2.html" rel="external"></a></li>
     <li><a href="kinvey/write.html" rel="external"></a></li> 
     </ul>
+<pre class="prettyprint">
+var promise = Kinvey.init({
+  appKey : 'kid_WkVVFh1N5',
+  appSecret : '8ffb767dda014827bd9de4ea01df7a32'
+});
+promise.then(function(activeUser) {
+  if(null === activeUser) {
+    return Kinvey.User.create();
+  }
+}, function(error) {
+});
+
+var promise = Kinvey.DataStore.find('Comments', null, {
+  success : drawCommentsTable,
+  error : drawCommentsError
+});
+</pre>
 
 	<h2>Microsoft <a href="http://azure.com">Azure Mobile Services</a> 예제</h2>
     <ul>
@@ -68,6 +148,18 @@
     <li><a href="azure/index2.html" rel="external"></a></li> 
     <li><a href="azure/write.html" rel="external"></a></li> 
     </ul>
+<pre class="prettyprint">
+var client = new WindowsAzure.MobileServiceClient('https://nextlayer.azure-mobile.net/', 'tIBCRAuvMqKAojuCYMmbqUdLzKSrNw70');
+var commentsItemTable = client.getTable('Comments');
+commentsItemTable.systemProperties = WindowsAzure.MobileServiceTable.SystemProperties.All;
+
+var query = commentsItemTable.where({ });
+query.read().then(function(commentsItems) {
+  var listItems = $.map(commentsItems, function(item){
+  });
+  $('#commentsTable').empty().append(listItems).toggle(listItems.length > 0);
+}, handleError);
+</pre>
 
 	<h2>SKTelecom <a href="http://developer.sktelecom.com">T developers</a> BaaS 예제</h2>
     <ul>
@@ -75,28 +167,50 @@
     <li><a href="sktdevbaas/index2.html" rel="external">조회+더보기</a></li> 
     <li><a href="sktdevbaas/write.html" rel="external">쓰기</a></li> 
     </ul>
+<pre class="prettyprint">
+Baas.initialize("7dab9da0-9541-4c63-9c6a-452c02ba957a");
+var query = new Baas.Query('Comments');
+query.limit(10);
+query.find({
+  success: drawCommentsTable,
+  error: drawCommentsError
+});
+</pre>
 
     <h2>설명</h2>
     <p>우선 SKT의 T developers에서 제공하는 BaaS의 예시로 설명<br />
     <a href="http://1drv.ms/1JOFZAu" rel="external">여기</a></p>
-    <p>소스코드를 보라. <a href="http://github.com/imyaman/MBaaS-SimpleExample" rel=external>README.md on github, http://github.com/imyaman/MBaaS-SimpleExample</a> </p> 
+    <p>소스코드를 보라</p>
     <p>속도는 baas.io, sktdevbaas, parse, kinvey 순</p>
     <p>편리함은 baas.io, parse, sktdevbaas, kinvey 순</p>
     <p>Microsoft의 Azure Mobile Services는 신세계. 대단함.</p>
-	<div class="main_banner" id="main_banner">                                                                                                                    
-		<script type="text/javascript">                                                                                                                           
-			var tad_conf = {                                                                                                                                      
-				targetId : 'main_banner',                                                                                                                         
-				clientId : 'MX0005733',                                                                                                                           
-				slotNo : 2,                                                                                                                                       
-				adType : 'inline',
-				newWindow : false                                                                                                                                 
-			};                                                                                                                                                    
-		</script>                                                                                                                                                 
-		<script type="text/javascript" src="http://adddn.adotsolution.com/contents/sdk/js/tad.min.js"></script>                                                   
-	</div>                                                                                                                                                        
+
+    <ul>
+        <li><a href="http://github.com/imyaman/MBaaS-SimpleExample" rel=external>README.md on github</a></li>
+        <li><a href="README.md" rel=external>README.md</a></li>
+        <li><a href="00-README-introduce.md" rel=external>00-README-introduce.md</a></li>
+        <li><a href="01-README-baas.io.md" rel=external>01-README-baas.io.md</a></li>
+        <li><a href="02-README-parse.md" rel=external>02-README-parse.md</a></li>
+        <li><a href="03-README-kinvey.md" rel=external>03-README-kinvey.md</a></li>
+        <li><a href="04-README-azure.md" rel=external>04-README-azure.md</a></li>
+        <li><a href="05-README-sktdevbaas.md" rel=external>05-README-sktdevbaas.md</a></li>
+    </ul>
+
+<script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"imyaman","width":550,"height":250,"sid":"dancer.youre.space"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 
   </div>
 </div>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<pre class="prettyprint">
+</pre>
 </body>
 </html>
