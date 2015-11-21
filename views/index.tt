@@ -206,6 +206,7 @@ query.find({
         <li><a href="05-README-sktdevbaas.md" rel=external>05-README-sktdevbaas.md</a></li>
     </ul>
 
+<center> <!-- -->
 <script type="text/javascript">
   ( function() {
     if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
@@ -214,12 +215,12 @@ query.find({
     window.CHITIKA.units.push(unit);
     document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
 }());
-</script>
-<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+</script> <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+</center> <!-- -->
+
   </div>
 </div>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-<pre class="prettyprint">
-</pre>
+<pre class="prettyprint"></pre>
 </body>
 </html>
