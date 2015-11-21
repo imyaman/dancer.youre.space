@@ -23,7 +23,6 @@
 
 <center>
 <script type="text/javascript"> 
-clicksor_enable_adhere = false; 
 clicksor_default_url = '';
 clicksor_banner_border = '#99CC33'; 
 clicksor_banner_ad_bg = '#FFFFFF';
@@ -35,11 +34,15 @@ clicksor_layer_ad_link_color = '';
 clicksor_layer_ad_text_color = ''; 
 clicksor_text_link_bg = '';
 clicksor_text_link_color = ''; 
-clicksor_enable_text_link = false;
 clicksor_banner_text_banner = true;
 clicksor_banner_image_banner = true; 
+clicksor_enable_text_link = false;
+clicksor_enable_inter = false;
+clicksor_enable_adhere = false;
+clicksor_enable_pop = false; 
 clicksor_enable_layer_pop = false;
-clicksor_enable_pop = false;
+clicksor_mobile_redirect = false;
+clicksor_default_url = 'http://creative.clicksor.com/pub_default_ads/330835_1/1_562543_7_d.htm';
 </script>
 <script type="text/javascript" src="http://b.yu0123456.com/show.php?nid=1&amp;pid=330835&amp;adtype=7&amp;sid=588821"></script>
 </center>
