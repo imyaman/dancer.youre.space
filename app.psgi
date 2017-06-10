@@ -17,4 +17,12 @@ get '/api/time' => sub {
     return { time => $t };
 };
 
+get '/integer/:a/plus/:b' => sub {
+    my ($a, $b, $s);
+    $a = route_parameters->get('a');
+    $b = route_parameters->get('b');
+    $s = $a + $b;
+    return { sum => $s };
+};
+
 dance;
