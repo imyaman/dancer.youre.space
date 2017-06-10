@@ -18,11 +18,13 @@ get '/api/time' => sub {
 };
 
 get '/integer/:a/plus/:b' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
     my ($a, $b, $s);
     $a = route_parameters->get('a');
     $b = route_parameters->get('b');
     $s = $a + $b;
-    return { sum => $s };
+    #return { sum => $s };
+    return "$s";
 };
 
 dance;
