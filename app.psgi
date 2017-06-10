@@ -1,20 +1,20 @@
-use strict;
-use Dancer;
+#!/usr/bin/env perl
+
+use Dancer2;
 
 get '/' => sub {
     template 'index';
 };
 
-#get '/hello' => sub {
-#    return $ENV{WORLD} || 'world';
-#};
-#
-#get '/NanumGothicBold.woff' => sub {
-#    return $ENV{WORLD} || 'world';
-#};
-#
-#get '/logo' => sub {
-#     send_file 'mozilla-marketplace-logo-final.png';
-#};
+get '/hello' => sub {
+    return $ENV{WORLD} || 'world';
+};
+
+get '/api/time' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
+    my $t = sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ", $year+1900, $mon+1, $mday, $hour, $min, $sec);
+    return { time => $t };
+};
 
 dance;
