@@ -1,3 +1,7 @@
 charset: "UTF-8"
+template: "simple"
 serializer: Mutable
 logger: "console"
+log: "debug"
+show_errors: 1
+startup_info: 1
