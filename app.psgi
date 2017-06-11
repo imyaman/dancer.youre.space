@@ -17,7 +17,8 @@ get '/api/time' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
     my $t = sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ", $year+1900, $mon+1, $mday, $hour, $min, $sec);
-    return { time => $t };
+    #return { time => $t };
+    return { time => "hello" };
 };
 
 get '/integer/:a/plus/:b' => sub {
@@ -26,8 +27,8 @@ get '/integer/:a/plus/:b' => sub {
     $a = route_parameters->get('a');
     $b = route_parameters->get('b');
     $s = $a + $b;
-    #return { sum => $s };
-    return "$s";
+    #return { sum => "$s " };
+    return { sum => "32" };
 };
 
 dance;
