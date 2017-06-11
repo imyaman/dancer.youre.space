@@ -6,13 +6,6 @@ use Dancer2;
 
 binmode STDOUT, ':encoding(UTF-8)';
 
-set serializer => 'JSON';
-set charset => 'UTF-8';
-set logger => 'console';
-set log => 'debug';
-set show_errors => 1;
-set startup_info => 1;
-
 get '/' => sub {
     template 'index';
 };
@@ -59,8 +52,7 @@ get '/integer/:a/plus/:b' => sub {
     $a = route_parameters->get('a');
     $b = route_parameters->get('b');
     $s = $a + $b;
-    return { sum => "$s " };
-    #return { sum => "32" };
+    return { sum => "$s" };
 };
 
 dance;
