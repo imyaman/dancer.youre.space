@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+binmode STDOUT, ':encoding(UTF-8)';
+
+use utf8;
 use Dancer2;
 
 get '/' => sub {
