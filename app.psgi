@@ -29,6 +29,30 @@ get '/api/time' => sub {
     #return { time => "hello" };
 };
 
+get '/api/myenv' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my ($myenv, $key);
+    for $key (keys %ENV){
+      $myenv .= $key . " : " . $ENV{$key} . "    " ;
+    }
+    return { myenv => $myenv };
+};
+
+get '/api/allenv' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my ($string, $key);
+    for $key (keys request->env()){
+      $string .= "\"$key\"" . ":" .  request->env->{$key} . "    <br>\n";
+    }
+    return { $string };
+};
+
+get '/api/envinc' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my $myinc = join ',,,,', @INC;
+    return { $ENV{PWD} => $myinc };
+};
+
 get '/integer/:a/plus/:b' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my ($a, $b, $s);
