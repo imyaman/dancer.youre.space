@@ -1,6 +1,7 @@
 charset: "UTF-8"
 template: "simple"
-serializer: Mutable
+#serializer: Mutable
+serializer: "JSON"
 logger: "console"
 log: "debug"
 show_errors: 1
