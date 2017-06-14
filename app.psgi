@@ -3,6 +3,7 @@
 
 use utf8;
 use Dancer2;
+use lib 'lib'
 
 binmode STDOUT, ':encoding(UTF-8)';
 
